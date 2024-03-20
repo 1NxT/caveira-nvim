@@ -81,8 +81,14 @@ require("neo-tree").setup({
                 "toggle_node", 
                 nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use 
             },
-            ["o"] = "open",
-            ["<cr>"] = "open",
+            ["o"] = {
+		"open",
+		nowait = true
+	    },
+            ["<cr>"] = {
+		"open",
+		nowait = true
+	    },
             ["<esc>"] = "cancel", -- close preview or floating neo-tree window
             ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
             -- Read `# Preview Mode` for more information

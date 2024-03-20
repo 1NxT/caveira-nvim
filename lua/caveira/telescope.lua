@@ -5,6 +5,3 @@ require('telescope').setup{
     }
   },
 }
-
--- This need to be after setup
-require("caveira.telescope.remaps")

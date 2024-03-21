@@ -84,6 +84,16 @@ _G.packer_plugins = {
     path = "/home/nxt/.local/share/nvim/site/pack/packer/start/nui.nvim",
     url = "https://github.com/MunifTanjim/nui.nvim"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/nxt/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-treesitter-refactor"] = {
+    loaded = true,
+    path = "/home/nxt/.local/share/nvim/site/pack/packer/start/nvim-treesitter-refactor",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-refactor"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/nxt/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",

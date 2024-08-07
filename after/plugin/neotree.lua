@@ -2,12 +2,17 @@ vim.fn.sign_define("DiagnosticSignError",{text = "", texthl = "DiagnosticSign
 vim.fn.sign_define("DiagnosticSignWarn", {text = "", texthl = "DiagnosticSignWarn"})
 vim.fn.sign_define("DiagnosticSignInfo", {text = "", texthl = "DiagnosticSignInfo"})
 vim.fn.sign_define("DiagnosticSignHint", {text = "󰌵", texthl = "DiagnosticSignHint"})
+
 require("neo-tree").setup({
         close_if_last_window = false,
         popup_border_style = "rounded",
         enable_git_status = true,
         enable_diagnostics = true,
         sort_case_insensitive = false, -- used when sorting files and directories in the tree
+        source_selector = {
+            winbar = true,
+            statusline = true
+        },
         default_component_configs = {
           container = {
             enable_character_fade = true
@@ -86,13 +91,13 @@ require("neo-tree").setup({
                 nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use 
             },
             ["o"] = {
-		"open",
-		nowait = true
-	    },
+                "open",
+                nowait = true
+            },
             ["<cr>"] = {
-		"open",
-		nowait = true
-	    },
+                "open",
+                nowait = true
+            },
             ["<esc>"] = "cancel", -- close preview or floating neo-tree window
             ["P"] = { "toggle_preview", config = { use_float = true, use_image_nvim = true } },
             -- Read `# Preview Mode` for more information
@@ -103,11 +108,11 @@ require("neo-tree").setup({
             ["w"] = "open_with_window_picker",
             ["C"] = "close_node",
             ["z"] = "close_all_nodes",
-            ["a"] = { 
-              "add",
-              config = {
-                show_path = "relative" -- "none", "relative", "absolute"
-              }
+            ["a"] = {
+                "add",
+                config = {
+                    show_path = "relative" -- "none", "relative", "absolute"
+                }
             },
             ["A"] = "add_directory",
             ["d"] = "delete",
@@ -115,11 +120,11 @@ require("neo-tree").setup({
             ["y"] = "copy_to_clipboard",
             ["x"] = "cut_to_clipboard",
             ["p"] = "paste_from_clipboard",
-	          ["c"] = {
-              "copy",
-              config = {
-                show_path = "none" -- "none", "relative", "absolute"
-              }
+            ["c"] = {
+                "copy",
+                config = {
+                    show_path = "none" -- "none", "relative", "absolute"
+                }
             },
             ["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
             ["q"] = "close_window",
@@ -142,21 +147,21 @@ require("neo-tree").setup({
             },
             always_show = { -- remains visible even if other settings would normally hide it
               ".gitignored",
-	      ".env.example",
-	      ".env"
+              ".env.example",
+              ".env"
             },
           },
           follow_current_file = {
-            enabled = false, 
-            leave_dirs_open = false,
+            enabled = true,
+            leave_dirs_open = true,
           },
-          group_empty_dirs = false, 
+          group_empty_dirs = false,
           hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
                                                   -- in whatever position is specified in window.position
                                 -- "open_current",  -- netrw disabled, opening a directory opens within the
                                                   -- window like netrw would, regardless of window.position
                                 -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-          use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+          use_libuv_file_watcher = true, -- This will use the OS level file watchers to detect changes
                                           -- instead of relying on nvim autocmd events.
           window = {
             mappings = {

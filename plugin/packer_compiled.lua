@@ -1,4 +1,5 @@
 -- Automatically generated packer.nvim plugin loader code
+
 if vim.api.nvim_call_function('has', {'nvim-0.5'}) ~= 1 then
   vim.api.nvim_command('echohl WarningMsg | echom "Invalid Neovim version for packer.nvim! | echohl None"')
   return
@@ -87,6 +88,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/epta/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  harpoon = {
+    loaded = true,
+    path = "/home/epta/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,

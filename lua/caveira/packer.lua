@@ -60,9 +60,71 @@ return require('packer').startup(function(use)
 	}
 
 	use { "catppuccin/nvim", as = "catppuccin" }
-    use {
-        "ThePrimeagen/harpoon",
-        branch = "harpoon2",
-        requires = { {"nvim-lua/plenary.nvim"} }
-    }
+	use {
+		"ThePrimeagen/harpoon",
+		branch = "harpoon2",
+		requires = { {"nvim-lua/plenary.nvim"} }
+	}
+
+	use {
+		'nvimdev/dashboard-nvim',
+		event = 'VimEnter',
+		config = function ()
+			require("dashboard").setup({
+				theme = 'doom',
+				config = {
+					header = {
+                        "",
+                        "",
+                        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠤⠖⠚⢉⣩⣭⡭⠛⠓⠲⠦⣄⡀⠀⠀⠀⠀⠀⠀⠀",
+                        "⠀⠀⠀⠀⠀⠀⢀⡴⠋⠁⠀⠀⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠳⢦⡀⠀⠀⠀⠀",
+                        "⠀⠀⠀⠀⢀⡴⠃⢀⡴⢳⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣆⠀⠀⠀",
+                        "⠀⠀⠀⠀⡾⠁⣠⠋⠀⠈⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢧⠀⠀",
+                        "⠀⠀⠀⣸⠁⢰⠃⠀⠀⠂⠊⢣⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣇⠀",
+                        "⠀⠀⠀⡇⠀⡾⡀⠀⠀⠀⠀⣀⣹⣆⡈⠀⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⠀",
+                        "⠀⠀⢸⠃⢀⣇⡈⠀⠀⠀⠀⠀⠀⢀⡑⢄⡀⢁⡁⠤⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇",
+                        "⠀⠀⢸⠀⢻⡟⡻⢶⡆⠀⠀⠀⠀⡼⠟⡳⢿⣦⡑⢄⠀⠉⠠⠔⠀⠀⠀⠀⢸⡇",
+                        "⠀⠀⣸⠀⢸⠃⡇⢀⠇⠀⠀⠀⠀⠀⡼⠀⠀⠈⣿⣗⠆⠄⠂⠁⠁⠁⠀⠁⢸⠁",
+                        "⠀⠀⡏⠀⣼⠀⢳⠊⠀⠀⠀⠀⠀⠀⠱⣀⣀⠔⣹⠁⠀⠀⠀⠀⠀⠀⠀⢠⡟⠀",
+                        "⠀⠀⡇⢀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⢸⠃⠀",
+                        "⠀⢸⠃⠘⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠁⠀⠀⢀⠀⠀⠀⠀⠀⣾⠀⠀",
+                        "⠀⣸⠀⠀⠹⡄⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⡞⠀⠀⠀⠸⠀⠀⠀⠀⠀⡇⠀⠀",
+                        "⡏⠀⠀⠀⠙⣆⠀⠀⠀⠀⠀⠀⠀⢀⣠⢶⡇⠀⠀⢰⡀⠀⠀⠀⠀⠀⡇⠀⠀",
+                        "⢰⠇⡄⠀⠀⠀⡿⢣⣀⣀⣀⡤⠴⡞⠉⠀⢸⠀⠀⠀⣿⡇⠀⠀⠀⠀⠀⣧⠀⠀",
+                        "⣸⠀⡇⠀⠀⠀⠀⠀⠀⠉⠀⠀⠀⢹⠀⠀⢸⠀⠀⢀⣿⠇⠀⠀⠀⠁⠀⢸⠀⠀",
+                        "⣿⠀⡇⠀⠀⠀⠀⠀⢀⡤⠤⠶⠶⠾⠤⠄⢸⠀⡀⠸⣿⣀⠀⠀⠀⠀⠀⠈⣇⠀",
+                        "⡇⠀⡇⠀⠀⡀⠀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠸⡌⣵⡀⢳⡇⠀⠀⠀⠀⠀⠀⢹⡀",
+                        "⡇⠀⠇⠀⠀⡇⡸⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠮⢧⣀⣻⢂⠀⠀⠀⠀⠀⠀⢧",
+                        "⣇⠀⢠⠀⠀⢳⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡎⣆⠀⠀⠀⠀⠀⠘",
+                        "⢻⠀⠈⠰⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⠘⢮⣧⡀⠀⠀⠀⠀",
+                        "⠸⡆⠀⠀⠇⣾⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠆⠀⠀⠀⠀⠀⠀⠀⠙⠳⣄⡀⢢⡀",
+                        "",
+                        "Caveira Neovim",
+                        ""
+					},
+					center = {
+						{
+							icon = ' ',
+							icon_hl = 'Title',
+							desc = 'Find File           ',
+							desc_hl = 'String',
+							key = 'f',
+							keymap = 'SPC f',
+							key_hl = 'Number',
+							key_format = ' %s', -- remove default surrounding `[]`
+						},
+						{
+							icon = ' ',
+							desc = 'Open file tree',
+							key = 'e',
+							keymap = 'SPC',
+							key_format = ' %s', -- remove default surrounding `[]`
+						},
+					},
+					footer = {}  --your footer
+				}
+			})
+		end,
+		requires = {'nvim-tree/nvim-web-devicons'}
+	}
 end)

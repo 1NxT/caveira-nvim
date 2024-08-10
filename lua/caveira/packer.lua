@@ -104,9 +104,9 @@ return require('packer').startup(function(use)
 					},
 					center = {
 						{
-							icon = ' ',
+							icon = ' ',
 							icon_hl = 'Title',
-							desc = 'Find File           ',
+							desc = ' Find File',
 							desc_hl = 'String',
 							key = 'f',
 							keymap = 'SPC f',
@@ -114,8 +114,8 @@ return require('packer').startup(function(use)
 							key_format = ' %s', -- remove default surrounding `[]`
 						},
 						{
-							icon = ' ',
-							desc = 'Open file tree',
+							icon = ' ',
+							desc = ' Open file tree',
 							key = 'e',
 							keymap = 'SPC',
 							key_format = ' %s', -- remove default surrounding `[]`
